@@ -28,7 +28,7 @@ namespace EmployeeWebApi.Controllers
 
 
         [HttpPost("AddEmployee")]
-        public int Addemployee(EmployeeModel emp)
+        public int Addemployee([FromBody] EmployeeModel emp)
         {
             return EmployeeRepositoryObject.AddEmployeeData(emp);
         }
