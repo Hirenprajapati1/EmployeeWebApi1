@@ -83,7 +83,7 @@ namespace EmployeeWebApi.Repository
         }
 
 
-        public bool UpdateEmployeeData(EmployeeModel st)
+        public int UpdateEmployeeData(EmployeeModel st)
         {
             try
             {
@@ -100,40 +100,52 @@ namespace EmployeeWebApi.Repository
                 cd.Parameters.AddWithValue("@DOB", st.DOB);
                 cd.Parameters.AddWithValue("@Salary", st.Salary);
                 sc.Open();
-                bool isExecute = Convert.ToBoolean(cd.ExecuteNonQuery());
+                //bool isExecute = Convert.ToBoolean(cd.ExecuteNonQuery());
+                cd.ExecuteNonQuery();
                 sc.Close();
-                return isExecute;
+                return 1;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
-            return true;
+            return 1;
+            //return true;
         }
 
 
         public bool DeleteEmployeeData(int ID)
         {
-            SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
-            SqlCommand cd = new SqlCommand("DeleteEmployee", sc);
-            cd.CommandType = CommandType.StoredProcedure;
-            cd.Parameters.AddWithValue("@ID", ID);
-            sc.Open();
-
-            int isExecute = cd.ExecuteNonQuery();
-            sc.Close();
-            if (isExecute > 0)
+            try
             {
 
-                return true;
+                SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+                SqlCommand cd = new SqlCommand("DeleteEmployee", sc);
+                cd.CommandType = CommandType.StoredProcedure;
+                cd.Parameters.AddWithValue("@ID", ID);
+                sc.Open();
+
+                int isExecute = cd.ExecuteNonQuery();
+                //cd.ExecuteNonQuery();
+                sc.Close();
+                if (isExecute > 0)
+                {
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            
+
             }
-            else
+            catch (Exception)
             {
-                return false;
+
+                throw;
             }
-
-
         }
 
 

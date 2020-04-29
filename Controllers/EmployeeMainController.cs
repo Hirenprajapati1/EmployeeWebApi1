@@ -33,6 +33,31 @@ namespace EmployeeWebApi.Controllers
             return EmployeeRepositoryObject.AddEmployeeData(emp);
         }
 
+
+
+
+
+        [HttpPost("UpdateEmployee")]
+        public int UpdateEmployee([FromBody] EmployeeModel emp)
+        {
+            return EmployeeRepositoryObject.UpdateEmployeeData(emp);
+        }
+
+
+        [HttpPost("DeleteEmployee")]
+        public bool DeleteEmployee([FromBody] EmployeeModel emp)
+        {
+            return EmployeeRepositoryObject.DeleteEmployeeData(emp.ID);
+        }
+
+
+
+
+
+
+
+
+
         //public IActionResult AddEmployees()
         //{
         //    DepartmentRepository departmentRepository = new DepartmentRepository();
@@ -93,7 +118,7 @@ namespace EmployeeWebApi.Controllers
         //    return View(EmployeeRepositoryObject.GetEmployees());
         //}
 
-        
+
 
 
 
