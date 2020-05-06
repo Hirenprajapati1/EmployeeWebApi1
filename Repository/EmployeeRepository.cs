@@ -25,6 +25,7 @@ namespace EmployeeWebApi.Repository
                 cd.Parameters.AddWithValue("@Email", st.Email);
                 cd.Parameters.AddWithValue("@EmployeeCode", st.EmployeeCode);
                 cd.Parameters.AddWithValue("@Gender", st.Gender);
+
                 cd.Parameters.AddWithValue("@Designation", st.Designation);
                 cd.Parameters.AddWithValue("@Department", st.Department);
                 cd.Parameters.AddWithValue("@DOB", st.DOB);
@@ -70,9 +71,9 @@ namespace EmployeeWebApi.Repository
                         Email = Convert.ToString(dr["Email"]),
                         EmployeeCode = Convert.ToString(dr["EmployeeCode"]),
                         Gender = Convert.ToString(dr["Gender"]),
-                        //Designation = Convert.ToInt32(dr["Designation"]),
+                        Designation = Convert.ToInt32(dr["Designation"]),
                         DesignationName = Convert.ToString(dr["DesignationName"]),
-                        //Department = Convert.ToInt32(dr["Department"]),
+                        Department = Convert.ToInt32(dr["Department"]),
                         DepartmentName = Convert.ToString(dr["DepartmentName"]),
                         DOB = Convert.ToString(dr["DOB"]),
                         Salary = Convert.ToInt32(dr["Salary"])

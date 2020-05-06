@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using EmployeeWebApi.Repository;
 using EmployeeWebApi.Models;
+using Microsoft.AspNetCore.Mvc.ViewFeatures.Buffers;
 
 namespace EmployeeWebApi.Controllers
 {
@@ -17,11 +18,17 @@ namespace EmployeeWebApi.Controllers
     public class EmployeeMainController : ControllerBase
     {
             EmployeeRepository EmployeeRepositoryObject = new EmployeeRepository();
-  
-        
+        DepartmentRepository departmentRepository = new DepartmentRepository();
+        DesignationRepository designationRepository = new DesignationRepository();
+
+
         [HttpGet("GetEmployees")]
         public List<EmployeeModel> GetEmployees()
         {
+            //var department = departmentRepository.GetDepartments();
+            //var department = departmentRepository.GetDepartments();
+            //   ViewBufferValue.Data  = department;
+
             return (EmployeeRepositoryObject.GetEmployees());
         }
 
