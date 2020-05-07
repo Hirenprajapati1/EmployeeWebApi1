@@ -115,7 +115,7 @@ namespace EmployeeWebApi.Repository
         }
 
 
-        public bool DeleteEmployeeData(int ID)
+        public int DeleteEmployeeData(int ID)
         {
             try
             {
@@ -123,30 +123,29 @@ namespace EmployeeWebApi.Repository
                 SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
                 SqlCommand cd = new SqlCommand("DeleteEmployee", sc);
                 cd.CommandType = CommandType.StoredProcedure;
-                cd.Parameters.AddWithValue("@ID", ID);
+                cd.Parameters.AddWithValue("@id", ID);
                 sc.Open();
 
-                int isExecute = cd.ExecuteNonQuery();
-                //cd.ExecuteNonQuery();
+                //int isExecute = cd.ExecuteNonQuery();
+                cd.ExecuteNonQuery();
                 sc.Close();
-                if (isExecute > 0)
-                {
+                //if (isExecute > 0)
+                //{
 
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-
-            
-
+                //    return true;
+                //}
+                //else
+                //{
+                //    return false;
+                //}
             }
+
             catch (Exception)
             {
 
                 throw;
             }
+            return 1;
         }
 
 

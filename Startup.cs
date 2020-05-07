@@ -19,29 +19,18 @@ namespace EmployeeWebApi
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddCors(options =>
-            //{
-            //options.AddPolicy(MyAllowSpecificOrigins,
-            //                  builder =>
-            //                  {
-            //                      builder.WithOrigins("http://localhost:56880/api/Listemp",
-            //                                          "http://localhost:56880/api/Listemp/GetEmployees")
-            //                                          .AllowAnyHeader()
-            //                                          .AllowAnyMethod();
-            //                  });
 
-
-
-
-            services.AddCors(options =>
+      services.AddCors(options =>
             {
                 options.AddPolicy("AllowMyOrigin",
-                builder => builder.WithOrigins("http://localhost:4200"));
+                builder => builder.WithOrigins("http://localhost:4200").AllowAnyHeader());
             });
-            //  });
-
-
-
+    
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy("AllowMyOrigin",
+            //    builder => builder.WithOrigins("Access-Control-Allow-Origin","http://localhost:4200"));
+            //});
             services.AddControllers();
         }
 

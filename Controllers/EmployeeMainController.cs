@@ -51,17 +51,11 @@ namespace EmployeeWebApi.Controllers
         }
 
 
-        [HttpPost("DeleteEmployee")]
-        public bool DeleteEmployee([FromBody] EmployeeModel emp)
+        [HttpPost("DeleteEmployee/{id}")]
+        public int DeleteEmployee(int ID)
         {
-            return EmployeeRepositoryObject.DeleteEmployeeData(emp.ID);
+            return EmployeeRepositoryObject.DeleteEmployeeData(ID);
         }
-
-
-
-
-
-
 
 
 
