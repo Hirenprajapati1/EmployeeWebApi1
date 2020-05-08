@@ -17,7 +17,7 @@ namespace EmployeeWebApi.Repository
         {
             try
             {
-                SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+                SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 300; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
 
                 SqlCommand cd = new SqlCommand("AddEmployee1", sc);
                 cd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -52,7 +52,7 @@ namespace EmployeeWebApi.Repository
 
         public List<EmployeeModel> GetEmployees()
         {
-            SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+            SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 300; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
             List<EmployeeModel> s2 = new List<EmployeeModel>();
 
             SqlDataAdapter sa = new SqlDataAdapter("GetEmployee2", sc);
@@ -88,7 +88,7 @@ namespace EmployeeWebApi.Repository
         {
             try
             {
-                SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+                SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 300; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
                 SqlCommand cd = new SqlCommand("UpdateEmployee3", sc);
                 cd.CommandType = System.Data.CommandType.StoredProcedure;
                 cd.Parameters.AddWithValue("@ID", st.ID);
@@ -120,7 +120,7 @@ namespace EmployeeWebApi.Repository
             try
             {
 
-                SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
+                SqlConnection sc = new SqlConnection("Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = database1; Integrated Security = True; Connect Timeout = 300; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False");
                 SqlCommand cd = new SqlCommand("DeleteEmployee", sc);
                 cd.CommandType = CommandType.StoredProcedure;
                 cd.Parameters.AddWithValue("@id", ID);
