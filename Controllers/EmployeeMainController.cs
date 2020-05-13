@@ -24,14 +24,21 @@ namespace EmployeeWebApi.Controllers
 
         [HttpGet("GetEmployees")]
         public List<EmployeeModel> GetEmployees()
-        {
-            //var department = departmentRepository.GetDepartments();
-            //var department = departmentRepository.GetDepartments();
-            //   ViewBufferValue.Data  = department;
-
+        {        
             return (EmployeeRepositoryObject.GetEmployees());
         }
 
+        [HttpGet("GetDepartments")]
+        public List<DepartmentModel> GetDepartments()
+        {
+            return (departmentRepository.GetDepartments());
+        }
+
+        [HttpGet("GetDesignations")]
+        public List<DesignationModel> GetDesignations()
+        {
+            return (designationRepository.GetDesignations());
+        }
 
 
         [HttpPost("AddEmployee")]
